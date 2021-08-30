@@ -657,8 +657,12 @@ class SmartIrrigationSensor(SmartIrrigationEntity):
         if data is not None:
             if "rain" in data:
                 self.rain = float(data["rain"])
+            else:
+                self.rain = 0
             if "snow" in data:
                 self.snow = float(data["snow"])
+            else:
+                self.snow = 0
             _LOGGER.info(
                 "rain: {}, snow: {}".format(  # pylint: disable=logging-format-interpolation
                     self.rain, self.snow
