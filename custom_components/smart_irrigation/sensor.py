@@ -655,6 +655,7 @@ class SmartIrrigationSensor(SmartIrrigationEntity):
     def get_precipitation(self, data):
         """Parse out precipitation info from OWM data."""
         if data is not None:
+            # if rain or snow are missing from the OWM data set them to 0
             if "rain" in data:
                 self.rain = float(data["rain"])
             else:
